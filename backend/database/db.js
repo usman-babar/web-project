@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 const Connection = async (password) => {
-  const URL = `mongodb+srv://usman-babar:${password}@bank.j1zhdnt.mongodb.net/?retryWrites=true&w=majority`;
+  const URL = process.env.MONGODB_URL_first + password + process.env.MONGODB_URL_second;
 
   try {
     await mongoose.connect(URL, {
