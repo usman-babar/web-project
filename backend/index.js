@@ -7,7 +7,7 @@ import Connection from "./database/db.js";
 import Route from "./routes/manager.js";
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 dotenv.config();
 app.use(bodyParser.json());
