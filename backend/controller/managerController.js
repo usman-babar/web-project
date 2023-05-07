@@ -23,6 +23,7 @@ export const getManagers = async (req, res) => {
 export const getManager = async (req, res) => {
   try {
     const matchedManager = await Manager.findById(req.params.id);
+    // console.log(req.params.id);
     res.status(200).json(matchedManager);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -31,9 +32,10 @@ export const getManager = async (req, res) => {
 export const editManager = async (req, res) => {
   let manager = req.body;
   const editManager = new Manager(manager);
-
+  console.log(req.params.id);
   try {
-    await Manager.updateOne({ _id: req.params.id }, editManager);
+    await Manager.updateOne({ _id: req.params._id }, editManager);
+    
     res.status(201).json(editManager);
   } catch (error) {
     res.status(409).json({ message: error.message });
