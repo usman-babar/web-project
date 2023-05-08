@@ -29,18 +29,18 @@ export const getManager = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
 export const editManager = async (req, res) => {
   let manager = req.body;
   const editManager = new Manager(manager);
-  console.log(req.params.id);
   try {
     await Manager.updateOne({ _id: req.params._id }, editManager);
-    
     res.status(201).json(editManager);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
 };
+
 export const deleteManager = async (req, res) => {
   let manager = req.body;
   const editManager = new Manager(manager);
