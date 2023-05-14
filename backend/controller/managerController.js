@@ -1,4 +1,4 @@
-import Manager from "../schema/schema.js";
+import Manager from "../schema/managerSchema.js";
 
 export const addManager = async (req, res) => {
   const manager = req.body;
@@ -30,16 +30,32 @@ export const getManager = async (req, res) => {
   }
 };
 
+
+// export const editManager = async (req, res) => {
+//   let manager = req.body;
+//   const editManager = new Manager(manager);
+//   try {
+//     // await Manager.findByIdAndUpdate({ _id: req.params.id }, editManager);
+//     await Manager.updateOne({ _id: req.params._id }, { $set: editManager }, { omitUndefined: true, upsert: false });
+//     res.status(201).json(editManager);
+//   } catch (error) {
+//     res.status(409).json({ message: error.message });
+//   }
+// };
+
 export const editManager = async (req, res) => {
   let manager = req.body;
-  const editManager = new Manager(manager);
+  console.log(req.body);
   try {
-    await Manager.updateOne({ _id: req.params._id }, editManager);
-    res.status(201).json(editManager);
+    const updatedManager = await Manager.findOneAndUpdate({ _id: req.params.id }, manager, { new: true });
+    res.status(200).json(updatedManager);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
 };
+
+
+
 
 export const deleteManager = async (req, res) => {
   let manager = req.body;

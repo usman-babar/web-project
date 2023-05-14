@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 
-// import autoIncrement from 'mongoose-auto-increment'
-
 const { Schema } = mongoose;
 
 const managerSchema = new Schema({
@@ -13,16 +11,5 @@ const managerSchema = new Schema({
     creation_date: { type: Date, default: Date.now() }
 });
 
-
-const adminSchema = new Schema({
-    username: { type: String, unique: true, required: true },
-    password: { type: String, maxlength: 10, required: true, unique: true },
-});
-
-
-// autoIncrement.initialize(mongoose.connection);
-// managerSchema.plugin(autoIncrement.plugin,"manager")
-
 const Manager = mongoose.model('manager', managerSchema);
-const Admin = mongoose.model('admin', adminSchema);
-export default (Manager, Admin);
+export default Manager;

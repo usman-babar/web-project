@@ -1,4 +1,4 @@
-import Admin from "../schema/schema.js";
+import Admin from "../schema/adminSchema.js";
 import jwt from "jsonwebtoken";
 
 export const getAdmins = (req, res) => {

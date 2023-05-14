@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import Connection from "./database/db.js";
 
-import Route from "./routes/manager.js";
+import managerRoute from "./routes/manager.js";
 import adminRoute from "./routes/admin.js";
 
 const app = express();
@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 3001;
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/", Route);
+
+app.use("/manager", managerRoute);
 app.use("/admin", adminRoute)
 
 Connection();
