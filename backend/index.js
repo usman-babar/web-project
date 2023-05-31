@@ -7,10 +7,12 @@ import Connection from "./database/db.js";
 import managerRoute from "./routes/manager.js";
 import adminRoute from "./routes/admin.js";
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+const app = express()
 
 dotenv.config();
+
+const PORT = process.env.PORT
+
 app.use(bodyParser.json());
 app.use(cors());
 

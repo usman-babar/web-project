@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.get("/all", getAdmins);
 router.post("/signin", signin);
+// router.put("/update", editAdmin);
 
 export default router;

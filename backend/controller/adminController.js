@@ -32,3 +32,21 @@ export const signin = (req, res) => {
         res.status(500).send("no understanding of error")
     })
 }
+
+// export const editAdmin = async (req, res) => {
+//     let adminObj = req.body;
+//     const editadmin = new Admin(adminObj);
+//     console.log(editadmin);
+//     if(editadmin){
+//         try {
+//             await Admin.findOneAndUpdate(adminObj);
+//             res.status(201).json(adminObj);
+//           } catch (error) {
+//             res.status(409).json({ message: error.message });
+//           }
+//     }
+//     else{
+//         res.status(404).send("Admin not found.")
+//     }
+    
+// };
