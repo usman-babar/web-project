@@ -11,9 +11,11 @@ const URL = "http://localhost:3001";
 //Add Manager
 export const addManager = async (data) => {
   try {
+    console.log(data);
     return await axios.post(`${URL}/manager/add`, data);
   } catch (error) {
-    console.log(`Erroe while calling add Manager api `, error);
+    console.log('error ha');
+    console.log(`Erroe while calling add Managers api `, error);
   }
 };
 //Display all Manager

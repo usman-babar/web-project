@@ -1,38 +1,5 @@
-// import "./App.css";
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// //Components
-// import BMS from "./components/Manager/BMS";
-// import AllManagers from "./components/Manager/AllManagers.js";
-// import AddManager from "./components/Manager/AddManager.js";
-// import Navbar from "./components/Manager/Navbar.js";
-// import EditManager from "./components/Manager/EditManager.js";
-// import LoginPage from "./components/Admin/Login";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <BrowserRouter>
-//       <LoginPage/>
-//         <Navbar />
-//         <Routes>
-//           <Route path="/" element={<BMS />} />
-//           <Route path="/add" element={<AddManager />} />
-//           <Route path="/all" element={<AllManagers />} />
-//           <Route path="/edit/:id" element={<EditManager />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 //Components
@@ -56,7 +23,7 @@ function App() {
       <BrowserRouter>
         {isLoggedIn ? (
           <>
-            <Navbar />
+            <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             <Routes>
               <Route path="/" element={<BMS />} />
               <Route path="/add" element={<AddManager />} />
