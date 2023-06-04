@@ -28,15 +28,18 @@ const StyledTable = styled(Table)`
 const Head = styled(TableRow)`
   background: #555555;
   & > th {
-    color: #fff;
-    font-size: 18px;
+    color: white;
+    font-size: 22px;
     font-weight: bold;
     padding: 12px;
+    background-color: #292929
   }
 `;
 
 const ManagerCell = styled(TableCell)`
-  font-size: 16px;
+  font-size: 18px;
+  color: white;
+
   padding: 12px;
 `;
 

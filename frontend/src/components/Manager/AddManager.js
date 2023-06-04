@@ -135,17 +135,16 @@ import {
 import { addManager } from "../../server/api.js";
 
 const Container = styled(FormGroup)`
-  width: 97%;
-  padding: 20px;
+  // width: 97%;
+  // padding: 20px;
   background-color: rgba(245, 245, 245, 0.1);
   background-image: url("../website-parallax-background-C.jpg");
   background-size: cover;
   color: white;
-
   background-position: center;
 
   & > div {
-    margin-top: 20px;
+    // margin-top: 20px;
   }
 
   
@@ -242,7 +241,7 @@ export default function AddManager() {
           <FormHelperText>{errors.date_of_birth}</FormHelperText>
         )}
       </FormControl>
-      <FormControl error={!!errors.phone_number} fullWidth>
+      <FormControl error={!!errors.phone_number} fullWidth >
         <InputLabel sx={{ color: 'white' }}>Manager Phone Number</InputLabel>
         <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="phone_number" style={{fontSize: '18px' }}  />
         {errors.phone_number && (
