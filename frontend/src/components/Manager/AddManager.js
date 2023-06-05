@@ -122,6 +122,7 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Global } from "@emotion/react";
 import {
   FormGroup,
   FormControl,
@@ -142,6 +143,8 @@ const Container = styled(FormGroup)`
   background-size: cover;
   color: white;
   background-position: center;
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent;
 
   & > div {
     // margin-top: 20px;
@@ -149,6 +152,8 @@ const Container = styled(FormGroup)`
 
   
 `;
+
+
 
 const Container1 = styled(FormGroup)`
   width: 40%;
@@ -163,6 +168,25 @@ const Container1 = styled(FormGroup)`
   }
 `;
 
+
+const scrollbarStyles = `
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #333333;
+  }
+`;
 
 const defaultValue = {
   name: "",
@@ -221,7 +245,7 @@ export default function AddManager() {
       </FormControl>
       <FormControl error={!!errors.username} fullWidth>
         <InputLabel sx={{ color: 'white' }}>Manager Username</InputLabel>
-        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="username" style={{fontSize: '18px' }}/>
+        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="username" style={{fontSize: '18px' , color: "yellow"}}/>
         {errors.username && <FormHelperText>{errors.username}</FormHelperText>}
       </FormControl>
       <FormControl error={!!errors.password} fullWidth>
@@ -230,20 +254,20 @@ export default function AddManager() {
           type="password"
           onChange={(e) => onValueChange(e)}
           name="password"
-          style={{fontSize: '18px' }}
+          style={{fontSize: '18px' , color: "yellow"}}
         />
         {errors.password && <FormHelperText>{errors.password}</FormHelperText>}
       </FormControl>
       <FormControl error={!!errors.date_of_birth} fullWidth>
         <InputLabel sx={{ color: 'white' }}>Manager DOB (DD/MM/YYYY)</InputLabel>
-        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="date_of_birth" style={{fontSize: '18px' }} />
+        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="date_of_birth" style={{fontSize: '18px' , color: "yellow"}} />
         {errors.date_of_birth && (
           <FormHelperText>{errors.date_of_birth}</FormHelperText>
         )}
       </FormControl>
       <FormControl error={!!errors.phone_number} fullWidth >
         <InputLabel sx={{ color: 'white' }}>Manager Phone Number</InputLabel>
-        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="phone_number" style={{fontSize: '18px' }}  />
+        <Input sx={{ color: 'white' }} onChange={(e) => onValueChange(e)} name="phone_number" style={{fontSize: '18px' , color: "yellow"}}  />
         {errors.phone_number && (
           <FormHelperText>{errors.phone_number}</FormHelperText>
         )}
@@ -258,6 +282,8 @@ export default function AddManager() {
         </Button>
       </FormControl>
     </Container1>
+    <Global styles={scrollbarStyles} />
+
     </Container>
   );
 }

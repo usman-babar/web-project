@@ -9,6 +9,7 @@ import AddManager from "./components/Manager/AddManager.js";
 import Navbar from "./components/Manager/Navbar.js";
 import EditManager from "./components/Manager/EditManager.js";
 import LoginPage from "./components/Admin/Login";
+import Footer from "./components/Manager/FooterContainer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +31,8 @@ function App() {
               <Route path="/all" element={<AllManagers />} />
               <Route path="/edit/:id" element={<EditManager />} />
             </Routes>
+            
+            <Footer /> 
           </>
         ) : (
           <LoginPage onLogin={handleLogin} />
