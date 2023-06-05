@@ -27,7 +27,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <Header position="static">
       <Toolbar>
-        <LogoImage src={Logo} alt="Logo" />
+        <NavLink to="/">
+          <LogoImage src={Logo} alt="Logo" />
+        </NavLink>
         <Tabs to="/">Bank Management System</Tabs>
         <Tabs to="/add">Add Manager</Tabs>
         <Tabs to="/all">All Managers</Tabs>
