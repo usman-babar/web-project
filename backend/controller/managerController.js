@@ -50,3 +50,19 @@ export const deleteManager = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+export const searchManager = async (req, res) => {
+  const  username  = req.body.username;
+  console.log("Hello", username);
+  try {
+    const manager = await Manager.findOne({ username });
+    
+    if (manager) {
+      res.status(200).json([manager]);
+    } else {
+      res.status(404).json({ message: "Manager not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
