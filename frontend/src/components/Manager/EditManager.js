@@ -30,7 +30,7 @@ const Container1 = styled(FormGroup)`
   margin: 5% auto 6% auto;
   padding: 20px;
   color: white;
-  background-color: rgba(245, 245, 245, 0.1);
+  background-color: rgba(245, 245, 245, 0.2);
   border-radius: 5px;
   & > div {
     margin-top: 20px;
@@ -93,11 +93,18 @@ export default function EditManager() {
     navigate("/all");
   };
 
-  const validateForm = () => {
-    const { name, date_of_birth, username, phone_number } = manager;
-    const isValid = name.trim() !== "" && date_of_birth.trim() !== "" && username.trim() !== "" && phone_number.trim() !== "";
-    setIsFormValid(isValid);
-  };
+const validateForm = () => {
+  const { name, date_of_birth, username, phone_number } = manager;
+  const isValid =
+    name.trim() !== "" &&
+    date_of_birth.trim() !== "" &&
+    username.trim() !== "" &&
+    phone_number.trim() !== "" &&
+    /^\d{11}$/.test(phone_number); // Check if phone_number is exactly 11 digits
+
+  setIsFormValid(isValid);
+};
+
 
   return (
     <Container>

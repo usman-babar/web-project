@@ -32,7 +32,7 @@ padding-bottom: 50px;
 
 const StyledTable = styled(Table)`
 width: 80%;
-background-color: rgba(245, 245, 245, 0.1);
+background-color: rgba(245, 245, 245, 0.2);
 `;
 
 const Head = styled(TableRow)`
